@@ -10,7 +10,11 @@ interface propsType {
 export default function Search({ searched, setSearched }: propsType) {
   return (
     <div className={styles.search}>
-      <input value={searched} onChange={(e) => setSearched(e.target.value)} />
+      <input
+        value={searched}
+        onChange={(e) => setSearched(e.target.value)}
+        placeholder="Buscar"
+      />
       <CgSearch size={20} color="#4C4D5E" />
     </div>
   );
