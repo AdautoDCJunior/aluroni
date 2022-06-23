@@ -3,13 +3,13 @@ import styles from "./Menu.module.scss";
 import { ReactComponent as Logo } from "assets/logo.svg";
 import Search from "./Search";
 import Filters from "./Filters";
-import Order from "./Order";
+import Order, { optionsOrder } from "./Order";
 import Items from "./Items";
 
 export default function Menu() {
   const [searched, setSearched] = useState("");
   const [filter, setFilter] = useState<number | null>(null);
-  const [order, setOrder] = useState("");
+  const [order, setOrder] = useState<optionsOrder>("");
 
   return (
     <main>
@@ -26,7 +26,7 @@ export default function Menu() {
           <Filters filter={filter} setFilter={setFilter} />
           <Order order={order} setOrder={setOrder} />
         </div>
-        <Items />
+        <Items searched={searched} filter={filter} order={order} />
       </section>
     </main>
   );

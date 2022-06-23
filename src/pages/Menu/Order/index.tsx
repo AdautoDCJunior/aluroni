@@ -4,9 +4,11 @@ import React, { useState } from "react";
 import classNames from "classnames";
 import { MdKeyboardArrowUp, MdKeyboardArrowDown } from "react-icons/md";
 
+export type optionsOrder = "" | "porcao" | "qtd_pessoas" | "preco";
+
 interface propsType {
-  order: string;
-  setOrder: React.Dispatch<React.SetStateAction<string>>;
+  order: optionsOrder;
+  setOrder: React.Dispatch<React.SetStateAction<optionsOrder>>;
 }
 
 export default function Order({ order, setOrder }: propsType) {
@@ -40,7 +42,7 @@ export default function Order({ order, setOrder }: propsType) {
           <div
             className={styles.order__option}
             key={option.value}
-            onClick={() => setOrder(option.value)}
+            onClick={() => setOrder(option.value as optionsOrder)}
           >
             {option.name}
           </div>
